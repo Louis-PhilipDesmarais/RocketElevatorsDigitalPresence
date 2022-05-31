@@ -53,6 +53,7 @@
 	-->
 	<body class="smoothscroll enable-animation">
 
+
 		<!-- wrapper -->
 		<div id="wrapper">
 
@@ -118,31 +119,16 @@
 										<a href="#topslider">
 											HOME										</a>
 									</li>
-									<li><!-- SERVICES -->
-										<a href="#services">
-											SERVICES
-										</a>
-									</li>
-									<li><!-- PORTEFOLIO -->
-										<a href="#portefolio">
-											PORTEFOLIO
-										</a>
-									</li>
-									<li><!-- NEWS -->
-										<a href="#news">
-											NEWS
-										</a>
-									</li>
-
-									<li><!-- CLIENTS -->
-										<a href="#clients">
-											CLIENTS
-										</a>
-									</li>
 									
 									<li><!-- CONTACT -->
 										<a href="#contactus">
 											CONTACT US
+										</a>
+									</li>
+								
+									<li><!-- SERVICES -->
+										<a href="#services">
+											SERVICES
 										</a>
 									</li>
 								</ul>
@@ -157,44 +143,179 @@
 			</div>
 
 
+			<hr class="m-0" /><!-- 1px line separator -->
 
-			<!-- REVOLUTION SLIDER -->
-			<div class="slider fullwidthbanner-container roundedcorners">
-				<!--
-					Navigation Styles:
-					
-						data-navigationStyle="" theme default navigation
-						
-						data-navigationStyle="preview1"
-						data-navigationStyle="preview2"
-						data-navigationStyle="preview3"
-						data-navigationStyle="preview4"
-						
-					Bottom Shadows
-						data-shadow="1"
-						data-shadow="2"
-						data-shadow="3"
-						
-					Slider Height (do not use on fullscreen mode)
-						data-height="300"
-						data-height="350"
-						data-height="400"
-						data-height="450"
-						data-height="500"
-						data-height="550"
-						data-height="600"
-						data-height="650"
-						data-height="700"
-						data-height="750"
-						data-height="800"
-				-->
-				
+
+			<!-- BUTTON CALLOUT -->
+			<a href="#contactus" class="btn btn-xlg btn-primary fs-20 fullwidth m-0 rad-0 p-40">
+				<span class="font-lato fs-30">
+					<strong>Rocket Elevator convinced you? <strong>
+				</span>
+			</a>
+			<!-- /BUTTON CALLOUT -->
+
 			<!-- CONTACT -->
-				<section id="contactus">
+			<section id="contactus">
+				<div class="container">
+
+					<header class="text-center mb-60">
+						<h2>Building project</h2>
+						<p class="lead font-lato"></p>
+						<hr />
+					</header>
+
+
+					<div class="row">
+
+						<!-- FORM -->
+						<div class="col-md-8 col-sm-8">
+
+
+							
+							<!--
+								MESSAGES
+								
+									How it works?
+									The form data is posted to php/contact.php where the fields are verified!
+									php.contact.php will redirect back here and will add a hash to the end of the URL:
+										#alert_success 		= email sent
+										#alert_failed		= email not sent - internal server error (404 error or SMTP problem)
+										#alert_mandatory	= email not sent - required fields empty
+										Hashes are handled by assets/js/contact.js
+
+									Form data: required to be an array. Example:
+										contact[email][required]  WHERE: [email] = field name, [required] = only if this field is required (PHP will check this)
+										Also, add `required` to input fields if is a mandatory field. 
+										Example: <input required type="email" value="" class="form-control" name="contact[email][required]">
+
+									PLEASE NOTE: IF YOU WANT TO ADD OR REMOVE FIELDS (EXCEPT CAPTCHA), JUST EDIT THE HTML CODE, NO NEED TO EDIT php/contact.php or javascript
+												 ALL FIELDS ARE DETECTED DINAMICALY BY THE PHP
+
+									WARNING! Do not change the `email` and `name`!
+												contact[name][required] 	- should stay as it is because PHP is using it for AddReplyTo (phpmailer)
+												contact[email][required] 	- should stay as it is because PHP is using it for AddReplyTo (phpmailer)
+							-->
+
+							<!-- Alert Success -->
+							<div id="alert_success" class="alert alert-success mb-30">
+								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+								<strong>Thank You!</strong> Your message successfully sent!
+							</div><!-- /Alert Success -->
+
+
+							<!-- Alert Failed -->
+							<div id="alert_failed" class="alert alert-danger mb-30">
+								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+								<strong>[SMTP] Error!</strong> Internal server error!
+							</div><!-- /Alert Failed -->
+
+
+							<!-- Alert Mandatory -->
+							<div id="alert_mandatory" class="alert alert-danger mb-30">
+								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+								<strong>Sorry!</strong> You need to complete all mandatory (*) fields!
+							</div><!-- /Alert Mandatory -->
+
+						</div>
+						<!-- /FORM -->						
+
+<!-- TESTS 2 ----------------------------------------------------------------->
+
+					<div>
+						<select id="buildingproject">
+							<option>Select Option</option>
+							<option value="residential">Residential</option>
+							<option value="commercial">Commercial</option>
+							<option value="corporate">Corporate</option>
+							<option value="hybrid">Hybrid</option>
+						</select>
+					</div>
+					<div id="index1">
+						
+					  <label for="contact:subject">What is the number of appartement? </label>
+					  <input id="qty_Appart" type="number" min="0">
+
+					  <label for="contact:subject">How many levels above-ground?</label>
+					  <input id="qty_Level" type="number" min="0">
+
+				      <label for="contact:subject">How many levels of basements?</label>
+					  <input id="qty_Base" type="number" min="0">
+
+					</div>															  
+																				  					
+					<div id="index2">
+						
+						 <label for="contact:subject">What is The number of distinct businesses? </label>
+						 <input id="qty_Appart" type="number" min="0">
+  
+						 <label for="contact:subject">What is the number of floors contained in the building, excluding basements?</label>
+						 <input id="qty_Level" type="number" min="0">
+  
+						 <label for="contact:subject">What is the number of basements contained in the building?</label>
+						 <input id="qty_Base" type="number" min="0">
+
+						 <label for="contact:subject">What is The number of parking space available? </label>
+						 <input id="qty_Appart" type="number" min="0">
+
+						 <label for="contact:subject">What is The number of elevator cages to be deployed? </label>
+						 <input id="qty_Appart" type="number" min="0">
+										
+					</div>
+																				   
+					<div id="index3">
+						
+						<label for="contact:subject">What is The number of separate tenant companies? </label>
+						<input id="qty_Appart" type="number" min="0">
+ 
+						<label for="contact:subject">What is the number of floors contained in the building, excluding basements?</label>
+						<input id="qty_Level" type="number" min="0">
+ 
+						<label for="contact:subject">What is the number of basements contained in the building?</label>
+						<input id="qty_Base" type="number" min="0">
+
+						<label for="contact:subject">What is The number of parking spaces available? </label>
+						<input id="qty_Appart" type="number" min="0">
+
+						<label for="contact:subject">What is The maximum number of occupants per floor? </label>
+						<input id="qty_Appart" type="number" min="0">
+										
+					</div>
+
+					<div id="index4"><strong>hybrid option
+						
+						<label for="contact:subject">What is the number of distinct businesses? </label>
+						<input id="qty_Appart" type="number" min="0">
+ 
+						<label for="contact:subject">What is the number of floors contained in the building, excluding basements?</label>
+						<input id="qty_Level" type="number" min="0">
+ 
+						<label for="contact:subject">What is the number of basements contained in the building?</label>
+						<input id="qty_Base" type="number" min="0">
+
+						<label for="contact:subject">What is the maximum number of occupants per floor? </label>
+						<input id="qty_Appart" type="number" min="0">
+
+						<label for="contact:subject">What is the number of hours of activity of the building? </label>
+						<input id="qty_Appart" type="number" min="0">
+
+					</div>
+	
+
+<!-- TESTS 2 -------------------------------------------------------------------->
+					</div>
+
+				</div>
+			</section>
+			<!-- /CONTACT -->
+
+		</div>
+
+			<!-- CONTACT -->
+			<section id="selectquality">
 				<div class="container">
 
 					<header class="text-center mb-60">						
-						<p class="lead font-lato">Rocket Elevators Quote Submission Form</p>
+						<p class="lead font-lato"><strong>Select the level of quality</strong></p>
 						<hr />
 					</header>
 
@@ -223,77 +344,18 @@
 									WARNING! Do not change the `email` and `name`!
 												contact[name][required] 	- should stay as it is because PHP is using it for AddReplyTo (phpmailer)
 												contact[email][required] 	- should stay as it is because PHP is using it for AddReplyTo (phpmailer)
-							-->
+							-->	
 
-					<!----- QUOTES SUBMISSIONS ----->
-							
-							<div class="col-md-4">
-								<label for="contact_department">Elevator department</label>
-								<select class="form-control pointer" name="contact[department]">
-									<option value="">--- Select ---</option>						
-									<option value="Webdesign">Residential</option>
-									<option value="Architecture">Commercial</option>
-									<option value="Architecture">Corporate</option>
-									<option value="Architecture">Hybrid</option>
-								</select>
-							</div>
-
-								</script>
-								<br /><br />
-							<ul class="row">							
-							<li class="col-md-4 col-sm-4 col-12">
-						<!-- QUESTION FORM #1 -->
-												<div id="DIV_1">
-												What is the number of appartement?					
-												 <input class="box_shadow_input" id="qty_Appart" type="number" oninput="Call()" onkeyup="Call()" onchange="Price()">   
-												</div>
-											
-						<!-- QUESTION FORM #2 -->						
-												<div id="DIV_2">
-												How many levels above-ground?										
-												 <input class="box_shadow_input" id="qty_Level" type="number" oninput="Call()" onkeyup="Call()" onchange="Price()"> 
-												</div>
-												
-						<!-- QUESTION FORM #3 -->						
-												<div id="DIV_3">
-												How many levels of basements?						
-												 <input class="box_shadow_input" id="qty_Base" type="number" oninput="Call()" onkeyup="Call()" onchange="Price()">  
-												</div>
-						
-						<!-- QUESTION FORM #4 -->						
-												<div id="DIV_4">
-												How many different business are hosted in your bulding?					
-												 <input class="box_shadow_input" id="qty_Business" type="number" oninput="Call()" onkeyup="Call()" onchange="Price()">    
-												</div>
-												
-						<!-- QUESTION FORM #5 -->						
-												<div id="DIV_5">
-												Enter the number of parking available					
-												 <input class="box_shadow_input" id="qty_Parking" type="number" oninput="Call()" onkeyup="Call()" onchange="Price()"> 
-												</div>
-					<!-- END QUOTES SUBMISSIONS  -->
-					
-
-
-						
-				
 			<!-- /CONTACT -->
 
-			        									
-			
-			
 			<!-- QUESTION FORM SELECT LEVEL OF QUALITY -->						
 							<br />
-							<header class="text-center mb-60">						
-								<p class="lead font-lato">Select the level of quality</p>
-								<hr />
-							</header>
-											
-							<div id="DIV_17"><input id="PriceUnitStandard" type="radio" name="services" value="standard" onchange="Price()"> Standard</div>
+																	
+							<div id="elevatordepartement"><input id="selectquality" type="radio" name="services" value="standard" onchange="Price()"> Standard</div>
 																			 
-							<div id="DIV_18"><input id="PriceUnitPremium" type="radio" name="services" value="premium" onchange="Price()"> Premium</div>
+							<div id="DIV_18"><input id="selectquality" type="radio" name="services" value="premium" onchange="Price()"> Premium</div>
 													  
-							<div id="DIV_19"><input id="PriceUnitExcelium" type="radio" name="services" value="other" onchange="Price()"> Excelium</div>
+							<div id="DIV_19"><input id="selectquality" type="radio" name="services" value="other" onchange="Price()"> Excelium</div>
 						</li>
 					<li class="col-md-4 col-sm-4 col-12 text-left"></li>
 				</ul>
@@ -301,13 +363,12 @@
 			<!-- END QUESTION ENTRY--------------------------------------------------------------------------------------------------------------------------------------->	
 	
 			<!--Detail of quote  -->
-				
+				<br /><br />
 					<li class="col-md-4 col-sm-4 col-12 text-center">
-						<header class="text-center mb-60">						
-							<p class="lead font-lato">Detail of the quote</p>
-							<hr />
-						</header>					
-							<li class="col-md-4 col-sm-4 col-12 text-center">
+						
+						<br />					
+							
+						<li class="col-md-4 col-sm-4 col-12 text-center">
 							<h3>Detail of the quote</h3>
 							<div id="DIV_13">Elevator Unit Price: <input id="PriceUnit" type="text" disabled="" class="box_shadow_input"></div>
 							<div id="DIV_14">Elevator price based on quantity: <input id="PriceUnitX" type="text" disabled="" class="box_shadow_input"></div>
@@ -318,6 +379,8 @@
 		</ul>
 		
 		</div>
+		
+		
 		<!-- /wrapper -->
 
 
@@ -338,6 +401,7 @@
 		<script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
 
 		<script src="assets/js/scripts.js"></script>
+		<script src="assets/js/quote.js"></script>
 		
 		<!-- STYLESWITCHER - REMOVE -->
 		<script async src="demo_files/styleswitcher/styleswitcher.js"></script>
@@ -381,19 +445,3 @@
 		</script>
 	</body>
 </html>
-
-<!-- FONCTIONS SELECT 
-		
-	<div>
-			<select>
-				<option>Choose Color</option>
-				<option value="red">Red</option>
-				<option value="green">Green</option>
-				<option value="blue">Blue</option>
-			</select>
-		</div>
-		<div class="red box">You have selected <strong>red option</strong> so i am here</div>
-		<div class="green box">You have selected <strong>green option</strong> so i am here</div>
-		<div class="blue box">You have selected <strong>blue option</strong> so i am here</div>  -->
-
-		
