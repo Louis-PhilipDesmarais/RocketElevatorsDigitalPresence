@@ -14,13 +14,16 @@ $("#buildingproject").change(function(){
 			$("#index2").hide();
 			$("#index3").hide();
 			$("#index4").hide();
+			calculresidential();
 			}	
 
 		else if($(this).val() =="commercial"){
+			
 			$("#index1").hide();
 			$("#index2").show();
 			$("#index3").hide();
 			$("#index4").hide();
+			calculcommercial();
 			}
 
 		else if($(this).val() =="corporate"){
@@ -28,6 +31,7 @@ $("#buildingproject").change(function(){
 			$("#index2").hide();
 			$("#index3").show();
 			$("#index4").hide();
+			calculcoporatehybrid()
 			}
 
 		else if($(this).val() =="hybrid"){
@@ -35,12 +39,47 @@ $("#buildingproject").change(function(){
 			$("#index2").hide();
 			$("#index3").hide();
 			$("#index4").show();
+			calculcoporatehybrid()
 			}
 	});
 $("#buildingproject").trigger("change");
 
 
-// INDEX SELECT OPTIONS ------------------------------------------------------
+// END INDEX SELECT OPTIONS ------------------------------------------------------
+
+// 	FONCTION CALCUL ---------------------------------------------------------------------------
+
+	function calculcommercial(){
+	
+		var elevatorneeded = 0
+			$("#nbrelevatorcommercial").change(function(){
+
+       	 	elevatorneeded = $("#nbrelevatorcommercial").val();
+
+			$("#quantity").val(elevatorneeded)
+
+			});	
+			}
+
+	function calculresidential(){  
+
+		var residentialtype = 
+			$("nbrapartments").calcul(fonction(){
+
+			residentialtype = $("#nbrapartments").val()
+			
+			
+		
+			});	
+			}
+	
+	function calculcoporatehybrid(){ 
+
+
+
+	     };
+
+// 	END FONCTION CALCUL ---------------------------------------------------------------------------
 
 // TESTS --------------------------------------------------------------------------------------
 
@@ -67,8 +106,4 @@ $("#buildingproject").trigger("change");
 // 	}).change();
 // });
 
-// TESTS --------------------------------------------------------------------------------------
-
-
-
-// 	FONCTION CALCUL ---------------------------------------------------------------------------
+// END TESTS --------------------------------------------------------------------------------------
