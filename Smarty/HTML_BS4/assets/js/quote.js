@@ -1,111 +1,46 @@
-
-
-// SELECT OPTIONS 
+// INDEX SELECT OPTIONS -----------------------------------------------------------
 
 
 $("#buildingproject").change(function(){
-		if($(this).val() =="residential"){
-			$("#buildingproject").show();
-
-		}
-		else{
+		if($(this).val() =="selectoption"){		
 			$("#index1").hide();
 			$("#index2").hide();
 			$("#index3").hide();
 			$("#index4").hide();
+			}
 		
+		else if($(this).val() =="residential"){
+			$("#index1").show();
+			$("#index2").hide();
+			$("#index3").hide();
+			$("#index4").hide();
+			}	
 
-		}
+		else if($(this).val() =="commercial"){
+			$("#index1").hide();
+			$("#index2").show();
+			$("#index3").hide();
+			$("#index4").hide();
+			}
+
+		else if($(this).val() =="corporate"){
+			$("#index1").hide();
+			$("#index2").hide();
+			$("#index3").show();
+			$("#index4").hide();
+			}
+
+		else if($(this).val() =="hybrid"){
+			$("#index1").hide();
+			$("#index2").hide();
+			$("#index3").hide();
+			$("#index4").show();
+			}
 	});
 $("#buildingproject").trigger("change");
 
 
 // INDEX SELECT OPTIONS ------------------------------------------------------
-
-// INDEX RESIDENTIAL ---------------------------------------------------------
-
-
-	$("#buildingproject").change(function(){
-			if($(this).val() =="residential"){
-				$("#index1").show();
-
-			}
-			else{
-				$("#index2").hide();
-				$("#index3").hide();
-				$("#index4").hide();
-				
-
-			}
-		});
-	$("#buildingproject").trigger("change");
-
-
-// INDEX RESIDENTIAL ---------------------------------------------------------
-
-// INDEX COMMERCIAL ----------------------------------------------------------
-
-
-$("#buildingproject").change(function(){
-		if($(this).val() =="commercial"){
-			$("#index2").show();
-
-		}
-		else{
-			$("#index1").hide();
-			$("#index3").hide();
-			$("#index4").hide();
-		
-
-		}
-	});
-$("#buildingproject").trigger("change");
-
-
-// INDEX COMMERCIAL -----------------------------------------------------------
-
-// INDEX CORPORATE ------------------------------------------------------------
-
-
-$("#buildingproject").change(function(){
-		if($(this).val() =="corporate"){
-			$("#index3").show();
-
-			}
-			else{
-				$("#index1").hide();
-				$("#index3").hide();
-				$("#index4").hide();
-				
-
-			}
-	});
-$("#buildingproject").trigger("change");
-
-
-// INDEX CORPORATE -------------------------------------------------------------
-
-// INDEX HYBRID ----------------------------------------------------------------
-
-
-$("#buildingproject").change(function(){
-		if($(this).val() =="hybrid"){
-			$("#index4").show();
-
-		}
-		else{
-			$("#index2").hide();
-			$("#index3").hide();
-			$("#index4").hide();
-		
-
-		}
-	});
-$("#buildingproject").trigger("change");
-
-
-// INDEX HYBRID ----------------------------------------------------------------
-
 
 // TESTS --------------------------------------------------------------------------------------
 
@@ -133,5 +68,7 @@ $("#buildingproject").trigger("change");
 // });
 
 // TESTS --------------------------------------------------------------------------------------
-console.log("hello world")
-console.log("is it working")
+
+
+
+// 	FONCTION CALCUL ---------------------------------------------------------------------------

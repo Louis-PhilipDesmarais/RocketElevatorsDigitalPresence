@@ -30,59 +30,12 @@
 		<link href="assets/css/color_scheme/yellow.css" rel="stylesheet" type="text/css" id="color_scheme" />
 	</head>
 
-	<!--
-		AVAILABLE BODY CLASSES:
-		
-		smoothscroll 			= create a browser smooth scroll
-		enable-animation		= enable WOW animations
-
-		bg-grey					= grey background
-		grain-grey				= grey grain background
-		grain-blue				= blue grain background
-		grain-green				= green grain background
-		grain-blue				= blue grain background
-		grain-orange			= orange grain background
-		grain-yellow			= yellow grain background
-		
-		boxed 					= boxed layout
-		pattern1 ... patern11	= pattern background
-		menu-vertical-hide		= hidden, open on click
-		
-		BACKGROUND IMAGE [together with .boxed class]
-		data-background="assets/images/_smarty/boxed_background/1.jpg"
-	-->
 	<body class="smoothscroll enable-animation">
 
 
 		<!-- wrapper -->
 		<div id="wrapper">
-
-			<!-- 
-				AVAILABLE HEADER CLASSES
-
-				Default nav height: 96px
-				.header-md 		= 70px nav height
-				.header-sm 		= 60px nav height
-
-				.b-0 		= remove bottom border (only with transparent use)
-				.transparent	= transparent header
-				.translucent	= translucent header
-				.sticky			= sticky header
-				.static			= static header
-				.dark			= dark header
-				.bottom			= header on bottom
-				
-				shadow-before-1 = shadow 1 header top
-				shadow-after-1 	= shadow 1 header bottom
-				shadow-before-2 = shadow 2 header top
-				shadow-after-2 	= shadow 2 header bottom
-				shadow-before-3 = shadow 3 header top
-				shadow-after-3 	= shadow 3 header bottom
-
-				.clearfix		= required for mobile menu, do not remove!
-
-				Example Usage:  class="clearfix sticky header-sm transparent b-0"
-			-->
+		
 			<div id="header" class="navbar-toggleable-md sticky header-md clearfix">
 
 				<!-- TOP NAV -->
@@ -138,9 +91,8 @@
 
 					</div>
 				</header>
-				<!-- /Top Nav -->
-
 			</div>
+				<!-- /Top Nav -->			
 
 
 			<hr class="m-0" /><!-- 1px line separator -->
@@ -164,153 +116,106 @@
 						<hr />
 					</header>
 
-
+						<!-- FORM -->
 					<div class="row">
 
-						<!-- FORM -->
-						<div class="col-md-8 col-sm-8">
-
-
-							
-							<!--
-								MESSAGES
-								
-									How it works?
-									The form data is posted to php/contact.php where the fields are verified!
-									php.contact.php will redirect back here and will add a hash to the end of the URL:
-										#alert_success 		= email sent
-										#alert_failed		= email not sent - internal server error (404 error or SMTP problem)
-										#alert_mandatory	= email not sent - required fields empty
-										Hashes are handled by assets/js/contact.js
-
-									Form data: required to be an array. Example:
-										contact[email][required]  WHERE: [email] = field name, [required] = only if this field is required (PHP will check this)
-										Also, add `required` to input fields if is a mandatory field. 
-										Example: <input required type="email" value="" class="form-control" name="contact[email][required]">
-
-									PLEASE NOTE: IF YOU WANT TO ADD OR REMOVE FIELDS (EXCEPT CAPTCHA), JUST EDIT THE HTML CODE, NO NEED TO EDIT php/contact.php or javascript
-												 ALL FIELDS ARE DETECTED DINAMICALY BY THE PHP
-
-									WARNING! Do not change the `email` and `name`!
-												contact[name][required] 	- should stay as it is because PHP is using it for AddReplyTo (phpmailer)
-												contact[email][required] 	- should stay as it is because PHP is using it for AddReplyTo (phpmailer)
-							-->
-
-							<!-- Alert Success -->
-							<div id="alert_success" class="alert alert-success mb-30">
-								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								<strong>Thank You!</strong> Your message successfully sent!
-							</div><!-- /Alert Success -->
-
-
-							<!-- Alert Failed -->
-							<div id="alert_failed" class="alert alert-danger mb-30">
-								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								<strong>[SMTP] Error!</strong> Internal server error!
-							</div><!-- /Alert Failed -->
-
-
-							<!-- Alert Mandatory -->
-							<div id="alert_mandatory" class="alert alert-danger mb-30">
-								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								<strong>Sorry!</strong> You need to complete all mandatory (*) fields!
-							</div><!-- /Alert Mandatory -->
+						
+						<div class="col-md-8 col-sm-8">							
 
 						</div>
-						<!-- /FORM -->						
+					</div>
+				</div>
+			</section>
+						<!-- /FORM -->					
 
-<!-- TESTS 2 ----------------------------------------------------------------->
+			<!-- INDEX SELECT OPTIONS ----------------------------------------------------------------->
 
+			<section>
+				<div>
 					<div>
 						<select id="buildingproject">
-							<option>Select Option</option>
+							<option value="selectoption">Select Option</option>
 							<option value="residential">Residential</option>
 							<option value="commercial">Commercial</option>
 							<option value="corporate">Corporate</option>
 							<option value="hybrid">Hybrid</option>
 						</select>
 					</div>
+					
 					<div id="index1">
 						
-					  <label for="contact:subject">What is the number of appartement? </label>
-					  <input id="qty_Appart" type="number" min="0">
+					  <label for="contact:subject">What is the number of appartement?</label>
+					  <input id="" type="number" min="0">
 
 					  <label for="contact:subject">How many levels above-ground?</label>
-					  <input id="qty_Level" type="number" min="0">
+					  <input id="" type="number" min="0">
 
 				      <label for="contact:subject">How many levels of basements?</label>
-					  <input id="qty_Base" type="number" min="0">
+					  <input id="" type="number" min="0">
 
 					</div>															  
 																				  					
 					<div id="index2">
 						
-						 <label for="contact:subject">What is The number of distinct businesses? </label>
-						 <input id="qty_Appart" type="number" min="0">
+						 <label for="contact:subject">What is The number of distinct businesses?</label>
+						 <input id="" type="number" min="0">
   
 						 <label for="contact:subject">What is the number of floors contained in the building, excluding basements?</label>
-						 <input id="qty_Level" type="number" min="0">
+						 <input id="" type="number" min="0">
   
 						 <label for="contact:subject">What is the number of basements contained in the building?</label>
-						 <input id="qty_Base" type="number" min="0">
+						 <input id="" type="number" min="0">
 
 						 <label for="contact:subject">What is The number of parking space available? </label>
-						 <input id="qty_Appart" type="number" min="0">
+						 <input id="" type="number" min="0">
 
 						 <label for="contact:subject">What is The number of elevator cages to be deployed? </label>
-						 <input id="qty_Appart" type="number" min="0">
+						 <input id="" type="number" min="0">
 										
 					</div>
 																				   
 					<div id="index3">
 						
-						<label for="contact:subject">What is The number of separate tenant companies? </label>
-						<input id="qty_Appart" type="number" min="0">
+						<label for="contact:subject">What is The number of separate tenant companies?</label>
+						<input type="number" min="0">
  
 						<label for="contact:subject">What is the number of floors contained in the building, excluding basements?</label>
-						<input id="qty_Level" type="number" min="0">
+						<input type="number" min="0">
  
 						<label for="contact:subject">What is the number of basements contained in the building?</label>
-						<input id="qty_Base" type="number" min="0">
+						<input type="number" min="0">
 
 						<label for="contact:subject">What is The number of parking spaces available? </label>
-						<input id="qty_Appart" type="number" min="0">
+						<input type="number" min="0">
 
 						<label for="contact:subject">What is The maximum number of occupants per floor? </label>
-						<input id="qty_Appart" type="number" min="0">
+						<input type="number" min="0">
 										
 					</div>
 
-					<div id="index4"><strong>hybrid option
+					<div id="index4">
 						
-						<label for="contact:subject">What is the number of distinct businesses? </label>
-						<input id="qty_Appart" type="number" min="0">
+						<label for="contact:subject">What is the number of distinct businesses?</label>
+						<input type="number" min="0">
  
 						<label for="contact:subject">What is the number of floors contained in the building, excluding basements?</label>
-						<input id="qty_Level" type="number" min="0">
+						<input type="number" min="0">
  
 						<label for="contact:subject">What is the number of basements contained in the building?</label>
-						<input id="qty_Base" type="number" min="0">
+						<input type="number" min="0">
 
 						<label for="contact:subject">What is the maximum number of occupants per floor? </label>
-						<input id="qty_Appart" type="number" min="0">
+						<input type="number" min="0">
 
 						<label for="contact:subject">What is the number of hours of activity of the building? </label>
-						<input id="qty_Appart" type="number" min="0">
+						<input type="number" min="0">
 
 					</div>
-	
-
-<!-- TESTS 2 -------------------------------------------------------------------->
-					</div>
-
 				</div>
 			</section>
-			<!-- /CONTACT -->
-
-		</div>
-
-			<!-- CONTACT -->
+		
+	
+			<!-- SELECT OPTIONS -------------------------------------------------------------------->	
 			<section id="selectquality">
 				<div class="container">
 
@@ -321,67 +226,39 @@
 
 
 					<div class="row">
+				</div>		
 							
-							<!--
-								MESSAGES
-								
-									How it works?
-									The form data is posted to php/contact.php where the fields are verified!
-									php.contact.php will redirect back here and will add a hash to the end of the URL:
-										#alert_success 		= email sent
-										#alert_failed		= email not sent - internal server error (404 error or SMTP problem)
-										#alert_mandatory	= email not sent - required fields empty
-										Hashes are handled by assets/js/contact.js
-
-									Form data: required to be an array. Example:
-										contact[email][required]  WHERE: [email] = field name, [required] = only if this field is required (PHP will check this)
-										Also, add `required` to input fields if is a mandatory field. 
-										Example: <input required type="email" value="" class="form-control" name="contact[email][required]">
-
-									PLEASE NOTE: IF YOU WANT TO ADD OR REMOVE FIELDS (EXCEPT CAPTCHA), JUST EDIT THE HTML CODE, NO NEED TO EDIT php/contact.php or javascript
-												 ALL FIELDS ARE DETECTED DINAMICALY BY THE PHP
-
-									WARNING! Do not change the `email` and `name`!
-												contact[name][required] 	- should stay as it is because PHP is using it for AddReplyTo (phpmailer)
-												contact[email][required] 	- should stay as it is because PHP is using it for AddReplyTo (phpmailer)
-							-->	
-
-			<!-- /CONTACT -->
-
-			<!-- QUESTION FORM SELECT LEVEL OF QUALITY -->						
-							<br />
-																	
-							<div id="elevatordepartement"><input id="selectquality" type="radio" name="services" value="standard" onchange="Price()"> Standard</div>
+			</section>			
+		
+			<!-- QUESTION FORM SELECT LEVEL OF QUALITY -->
+				<ul>			
+						<lil>																	
+							<div id=""><input id="selectquality" type="radio" name="services" value="standard" onchange="Price()"> Standard</div>
 																			 
-							<div id="DIV_18"><input id="selectquality" type="radio" name="services" value="premium" onchange="Price()"> Premium</div>
+							<div id=""><input id="selectquality" type="radio" name="services" value="premium" onchange="Price()"> Premium</div>
 													  
-							<div id="DIV_19"><input id="selectquality" type="radio" name="services" value="other" onchange="Price()"> Excelium</div>
+							<div id=""><input id="selectquality" type="radio" name="services" value="other" onchange="Price()"> Excelium</div>
 						</li>
-					<li class="col-md-4 col-sm-4 col-12 text-left"></li>
+							<li class="col-md-4 col-sm-4 col-12 text-left"></li>
 				</ul>
 						  
 			<!-- END QUESTION ENTRY--------------------------------------------------------------------------------------------------------------------------------------->	
 	
 			<!--Detail of quote  -->
-				<br /><br />
-					<li class="col-md-4 col-sm-4 col-12 text-center">
-						
-						<br />					
+					<li class="col-md-4 col-sm-4 col-12 text-center">					
 							
 						<li class="col-md-4 col-sm-4 col-12 text-center">
 							<h3>Detail of the quote</h3>
-							<div id="DIV_13">Elevator Unit Price: <input id="PriceUnit" type="text" disabled="" class="box_shadow_input"></div>
-							<div id="DIV_14">Elevator price based on quantity: <input id="PriceUnitX" type="text" disabled="" class="box_shadow_input"></div>
-							<div id="DIV_15">Installation costs : <input id="InstallationCost" type="text" disabled="" class="box_shadow_input"></div>
-							<div id="DIV_16">Total project cost: <input id="Total" type="text" disabled="" class="box_shadow_input"></div>
-					</li>
+							<div id="">Elevator Unit Price: <input id="PriceUnit" type="text" disabled="" class="box_shadow_input"></div>
+							<div id="">Elevator price based on quantity: <input id="PriceUnitX" type="text" disabled="" class="box_shadow_input"></div>
+							<div id="">Installation costs : <input id="InstallationCost" type="text" disabled="" class="box_shadow_input"></div>
+							<div id="">Total project cost: <input id="Total" type="text" disabled="" class="box_shadow_input"></div>
+						</li>
 				<li class="col-md-4 col-sm-4 col-12"></li>
-		</ul>
-		
+					
+			<!--Detail of quote  -->		
 		</div>
-		
-		
-		<!-- /wrapper -->
+	<!-- /wrapper -->
 
 
 		<!-- SCROLL TO TOP -->
