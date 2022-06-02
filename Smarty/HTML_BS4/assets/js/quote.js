@@ -62,24 +62,55 @@ $("#buildingproject").trigger("change");
 			}
 
 	function calculresidential(){  
-
-		var residentialtype = 
-			$("nbrapartments").calcul(fonction(){
-
-			residentialtype = $("#nbrapartments").val()
+			$("#quantity").change(function(){
+		    numberapartements = $("#nbrapartmentsresidential").val();
+			numberfloor = $("#nbrabovegroundresidential");
+			residentialelevator = $("#nbrbasementsresidential");
 			
-			
+			cageelevator = Math.ceil(numberfloor / 20);
+
+			numberelevator = Math.ceil(numberapartements / numberfloor / 6);
+
+			amountelevator = numberelevator * cageelevator;
+			$("#quantity").val(amountelevator);
+
 		
 			});	
 			}
-	
+			
 	function calculcoporatehybrid(){ 
+		    $("#quantity").change(function(){
 
+			numelevator = 0
+			numofbasements = 0
+			nbrfloorbasements = 0
+			numbercompagnie = 0			
+			numbercolumns = 0
+			numelevator = 0
+			averageelevatorcolumns = 0
+			totalnbroccupants = 0
+			totalelevatorneeded = 0
+		    
+			numelevator = (totalnbroccupants / 1000 );
+			numbercolumns = (nbrfloorbasements / 20 );
+			averageelevatorcolumns = (numelevator / numbercolumns );
+			totalelevatorneeded = (averageelevatorcolumns * numbercolumns);
 
+			$("#quantity").val(totalelevatorneeded);
 
-	     };
+	    	 });
+			 }
 
 // 	END FONCTION CALCUL ---------------------------------------------------------------------------
+
+// notes
+// totalresidential = $("#quantity").val(amountelevator) * residentialelevator;
+// 			$("#priceofelevator").val(totalresidential);
+
+
+
+
+
 
 // TESTS --------------------------------------------------------------------------------------
 
@@ -107,3 +138,5 @@ $("#buildingproject").trigger("change");
 // });
 
 // END TESTS --------------------------------------------------------------------------------------
+
+// $("nbrapartments").change(fonction(){
