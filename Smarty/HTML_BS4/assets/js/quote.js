@@ -15,6 +15,7 @@ $("#buildingproject").change(function(){
 			$("#index3").hide();
 			$("#index4").hide();
 			calculresidential();
+			calculateprice()
 			}	
 
 		else if($(this).val() =="commercial"){
@@ -24,6 +25,7 @@ $("#buildingproject").change(function(){
 			$("#index3").hide();
 			$("#index4").hide();
 			calculcommercial();
+			calculateprice()
 			}
 
 		else if($(this).val() =="corporate"){
@@ -32,6 +34,7 @@ $("#buildingproject").change(function(){
 			$("#index3").show();
 			$("#index4").hide();
 			calculcoporatehybrid()
+			calculateprice()
 			}
 
 		else if($(this).val() =="hybrid"){
@@ -40,6 +43,7 @@ $("#buildingproject").change(function(){
 			$("#index3").hide();
 			$("#index4").show();
 			calculcoporatehybrid()
+			calculateprice()
 			}
 	});
 $("#buildingproject").trigger("change");
@@ -48,72 +52,123 @@ $("#buildingproject").trigger("change");
 // END INDEX SELECT OPTIONS ------------------------------------------------------
 
 // 	FONCTION CALCUL ---------------------------------------------------------------------------
-
-	function calculcommercial(){
 	
-		var elevatorneeded = 0
-			$("#nbrelevatorcommercial").change(function(){
-
-       	 	elevatorneeded = $("#nbrelevatorcommercial").val();
-
-			$("#quantity").val(elevatorneeded)
-
-			});	
-			}
-
-	function calculresidential(){  
-			$("#quantity").change(function(){
-		    numberapartements = $("#nbrapartmentsresidential").val();
-			numberfloor = $("#nbrabovegroundresidential");
-			residentialelevator = $("#nbrbasementsresidential");
+		function calculresidential(){  
 			
-			cageelevator = Math.ceil(numberfloor / 20);
+			$("#nbrapartmentsresidential").change(function(){
+			$("#nbrabovegroundresidential").change(function(){
+			$("#nbrbasementsresidential").change(function(){
+		   
+			numberapartements = 0
+			numberfloor = 0
+			residentialelevator = 0
+			cageelevator = 0
+			amountelevator = 0
+			numberelevator = 0
 
-			numberelevator = Math.ceil(numberapartements / numberfloor / 6);
+			numberapartements = $("#nbrapartmentsresidential").val();
+			numberfloor = $("#nbrabovegroundresidential").val();
+			residentialelevator = $("#nbrbasementsresidential").val();	
 
-			amountelevator = numberelevator * cageelevator;
+			cageelevator = Math.ceil(numberfloor / 20 );			
+			numberelevator = Math.ceil(numberapartements / numberfloor / 6 );
+		
+			amountelevator = (numberelevator * cageelevator);
+			
 			$("#quantity").val(amountelevator);
-
+			
+			});
+			});
+			});			
+			}
+		
+		function calculcommercial(){
+	
+			var elevatorneeded = 0
+				$("#nbrelevatorcommercial").change(function(){
+		
+				elevatorneeded = $("#nbrelevatorcommercial").val();
+		
+				$("#quantity").val(elevatorneeded)
 		
 			});	
 			}
-			
-	function calculcoporatehybrid(){ 
-		    $("#quantity").change(function(){
+
+		function calculcoporatehybrid(){ 
+		   			
+			$("#nbrcompanies").change(function(){
+			$("#nbrfloors").change(function(){
+			$("#nbrbasements").change(function(){
 
 			numelevator = 0
-			numofbasements = 0
+				numofbasements = 0
 			nbrfloorbasements = 0
-			numbercompagnie = 0			
+				numbercompagnie = 0			
 			numbercolumns = 0
-			numelevator = 0
 			averageelevatorcolumns = 0
 			totalnbroccupants = 0
 			totalelevatorneeded = 0
 		    
-			numelevator = (totalnbroccupants / 1000 );
-			numbercolumns = (nbrfloorbasements / 20 );
-			averageelevatorcolumns = (numelevator / numbercolumns );
-			totalelevatorneeded = (averageelevatorcolumns * numbercolumns);
+			numelevator = $("#nbrcompanies").val();
+			nrbfloorbasements = $("#nbrfloors").val();
+			averageelevatorcolumns = $("#nbrbasements").val();
+			numbercolumns = $("#nbroccupants").val();
+
+			console.log(numelevator)
+			console.log(nrbfloorbasements)
+			console.log(averageelevatorcolumns)
+			console.log(totalnbroccupants )
+			console.log(totalelevatorneeded )
+
+			numelevator = math.ceil(totalnbroccupants / 1000 );
+			numbercolumns = math.ceil(nbrfloorbasements / 20 );
+			averageelevatorcolumns = math.ceil(numelevator / numbercolumns );
+			totalelevatorneeded = math.ceil(averageelevatorcolumns * numbercolumns);
+
+			console.log(numelevator)
+			console.log(numbercolumns)
+			console.log(averageelevatorcolumns)
+			console.log(totalelevatorneeded)
 
 			$("#quantity").val(totalelevatorneeded);
-
-	    	 });
-			 }
-
+						
+			});
+			});
+			});			
+			}
 // 	END FONCTION CALCUL ---------------------------------------------------------------------------
+//  CULCUL PRICE ----------------------------------------------------------------------------------
 
-// notes
-// totalresidential = $("#quantity").val(amountelevator) * residentialelevator;
-// 			$("#priceofelevator").val(totalresidential);
+		function calculateprice(){
+
+			elevatorprice = 0
+
+			$("#quantity").change(function(){
+			if($(this).val() =="#quantity")
 
 
+				fees = 7565
+
+			$("#quantity").change(function(){
+			if($(this).val() =="#quantity")
 
 
+				fees = 12345
+
+			$("#quantity").change(function(){
+			if($(this).val() =="#quantity")
 
 
+				fees = 15400
+
+			$("#pricefees")	= elevatorprice
+
+		});
+		});		
+		});
+		};
+//  END CALCAL PRICE --------------------------------------------------------------------------
 // TESTS --------------------------------------------------------------------------------------
-
 // $(document).ready(function(){
 // 	$("#buildingproject").change(function(){
 // 		$( "select option:selected").each(function(){
@@ -136,7 +191,4 @@ $("#buildingproject").trigger("change");
 // 		});
 // 	}).change();
 // });
-
 // END TESTS --------------------------------------------------------------------------------------
-
-// $("nbrapartments").change(fonction(){
